@@ -44,4 +44,10 @@ describe('Brypt Adapter', () => {
     const isvalid = await sut.compare('any_value', 'any_hash')
     expect(isvalid).toBe(true)
   })
+  test('should return true when compare succeeds', async () => {
+    const sut = makeSut()
+    jest.spyOn(bcrypt, 'compare').mockReturnValueOnce(new Promise(resolve => resolve(false)))
+    const isvalid = await sut.compare('any_value', 'any_hash')
+    expect(isvalid).toBe(false)
+  })
 })
