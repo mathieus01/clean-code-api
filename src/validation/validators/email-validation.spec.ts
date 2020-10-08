@@ -1,6 +1,6 @@
 import { EmailValidation } from './email-validation'
-import { EmailValidator } from '../../protocols/email-validator'
-import { InvalidParamError } from '../../errors'
+import { EmailValidator } from '../protocols/email-validator'
+import { InvalidParamError } from '../..//presentation/errors'
 
 const makeEmailValidator = (): EmailValidator => {
   class EmailValidatorStub implements EmailValidator {
@@ -11,7 +11,7 @@ const makeEmailValidator = (): EmailValidator => {
   return new EmailValidatorStub()
 }
 
-interface SutTypes{
+interface SutTypes {
   sut: EmailValidation
   emailValidatorStub: EmailValidator
 }
