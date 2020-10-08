@@ -1,5 +1,5 @@
 export interface SurveyAnswer {
-  image: string
+  image?: string
   answer: string
 }
 export interface AddSurveyModel {
@@ -8,5 +8,5 @@ export interface AddSurveyModel {
 }
 
 export interface AddSurvey {
-  add (data: AddSurveyModel): Promise<void>
+  add(data: AddSurveyModel): Promise<void>
 }
