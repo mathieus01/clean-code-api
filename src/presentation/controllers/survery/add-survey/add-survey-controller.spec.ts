@@ -1,14 +1,16 @@
 import { HttpRequest, AddSurvey, AddSurveyModel, Validation } from './add-survey-protocols'
 import { AddSurveyController } from './add-survey-controller'
-import { badRequest, serverError } from '../../../helpers/http/http-helper'
+import { badRequest, serverError, noContent } from '../../../helpers/http/http-helper'
 
 const makeFakeRequest = (): HttpRequest => ({
   body: {
     question: 'any_question',
-    answers: [{
-      image: 'any_image',
-      answer: 'any_answer'
-    }]
+    answers: [
+      {
+        image: 'any_image',
+        answer: 'any_answer'
+      }
+    ]
   }
 })
 
@@ -24,7 +26,7 @@ const makeValidation = (): Validation => {
 const makeAddSurvey = (): AddSurvey => {
   class AddSurveyStub implements AddSurvey {
     async add (data: AddSurveyModel): Promise<void> {
-      return new Promise(resolve => resolve())
+      return new Promise((resolve) => resolve())
     }
   }
   return new AddSurveyStub()
@@ -74,5 +76,10 @@ describe('AddSurvey Controller', () => {
     jest.spyOn(addSurveyStub, 'add').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
     const httpResponse = await sut.handle(makeFakeRequest())
     expect(httpResponse).toEqual(serverError(new Error()))
+  })
+  test('Should return 204 on success', async () => {
+    const { sut } = makeSut()
+    const httpResponse = await sut.handle(makeFakeRequest())
+    expect(httpResponse).toEqual(noContent())
   })
 })
