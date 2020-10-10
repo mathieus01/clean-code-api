@@ -29,16 +29,14 @@ describe('Login Routes', () => {
         .post('/api/surveys')
         .send({
           question: 'Question',
-          answers: [
-            {
-              answer: 'Answer 1',
-              image: 'http://image-name.com'
-            },
-            {
-              answer: 'Answer 2',
-              image: 'http://image-name.com'
-            }
-          ]
+          answers: [{
+            answer: 'Answer 1',
+            image: 'http://image-name.com'
+          },
+          {
+            answer: 'Answer 2',
+            image: 'http://image-name.com'
+          }]
         })
         .expect(403)
     })
@@ -63,15 +61,13 @@ describe('Login Routes', () => {
         .set('x-access-token', accessToken)
         .send({
           question: 'Question',
-          answers: [
-            {
-              answer: 'Answer 1',
-              image: 'http://image-name.com'
-            },
-            {
-              answer: 'Answer 2'
-            }
-          ]
+          answers: [{
+            answer: 'Answer 1',
+            image: 'http://image-name.com'
+          },
+          {
+            answer: 'Answer 2'
+          }]
         })
         .expect(204)
     })
