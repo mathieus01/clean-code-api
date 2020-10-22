@@ -1,7 +1,10 @@
 {
   "name": "clean-code-api",
   "version": "2.2.0",
-  "description": "",
+  "description": "NodeJs Rest API using TDD, Clean Architecture, SOLID and Typescript",
+  "author": "Matheus Nunes",
+  "repository": "git@github.com:mathieus01/clean-ts-api.git",
+  "licenses": "GPL-3.0-or-later",
   "main": "index.js",
   "scripts": {
     "start": "node dist/main/server.js",
