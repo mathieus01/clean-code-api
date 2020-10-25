@@ -1,6 +1,6 @@
 import { DbLoadSurveyResult } from './db-load-survey-result'
+import { LoadSurveyResultRepository } from './db-load-survey-result-protocols'
 import { mockLoadSurveyResultRepositoryStub } from '@/data/test'
-import { LoadSurveyResultRepository } from '@/data/protocols/db/survey-result/load-survey-result-repository'
 
 interface SutTypes {
   loadSurveyResultRepositoryStub: LoadSurveyResultRepository
